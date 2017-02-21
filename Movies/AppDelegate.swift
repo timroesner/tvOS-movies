@@ -8,6 +8,28 @@
 
 import UIKit
 
+var movies:[movie] = []
+var covers:[UIImage] = []
+var currentMovie:movie? = nil
+
+class movie {
+    let title : String
+    let cover : String
+    let desc : String
+    let link : String
+    let year : String
+    let index : Int
+    
+    init(title : String, cover : String, desc : String, link : String, year: String, index: Int) {
+        self.title = title
+        self.cover = cover
+        self.desc = desc
+        self.link = link
+        self.year = year
+        self.index = index
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -34,8 +56,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
+        
+        let url = URL(string: "http://timsvideos.x10host.com/videos.php")
+        
+        do {
+            var counter = 0;
+            let data = try NSData(contentsOf: url!, options: NSData.ReadingOptions.mappedIfSafe)
+            let JSON = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
+            if let dictionary = JSON as? [String: Any] {
+                    while(dictionary["\(counter)"] as? [String: Any] != nil){
+                        let nestedDic = dictionary["\(counter)"] as? [String: Any]
+                        let tmpMovie = movie(title : (nestedDic!["title"] as? String)!, cover : (nestedDic!["cover"] as? String)!, desc : (nestedDic!["desc"] as? String)!, link : (nestedDic!["link"] as? String)!, year: (nestedDic!["year"] as? String)!, index: counter)
+                        movies.append(tmpMovie)
+                        counter += 1
+                    }
+                }
+        } catch let error as NSError {
+            print("Error: \(error)")
+            
+            let alertController = UIAlertController(title: "No Internet Connection", message: "Seems like you are not connected to the internet. Temperature will not be updated.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            alertController.show(alertController, sender: self)
+            }
+        
+        for movie in movies{
+            let imgURL = URL(string: movie.cover)!
+            let data = NSData(contentsOf: imgURL)
+            let image = UIImage(data: data as! Data)
+            covers.append(image!)
+        }
+        }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
