@@ -16,8 +16,12 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        playVideo()
+    }
+    
     func playVideo() {
-        
         player = AVPlayer(url: URL(string: currentMovie!.link)!)
         player?.play()
     }

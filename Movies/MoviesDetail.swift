@@ -31,7 +31,6 @@ class MoviesDetail: UIViewController, AVPlayerViewControllerDelegate {
     
     @IBAction func playBtn (_ Sender: UIButton) {
         let playerVC = PlayerViewController()
-        playerVC.playVideo()
         self.present(playerVC, animated: true, completion: nil)
     }
 
