@@ -26,7 +26,7 @@ class MoviesDetail: UIViewController, AVPlayerViewControllerDelegate {
         lblTitle.text = currentMovie!.title
         descLbl.text = currentMovie!.desc
         yearLbl.text = currentMovie!.year
-        cover.image = covers[currentMovie!.index]
+        cover.image = currentImage
     }
     
     @IBAction func playBtn (_ Sender: UIButton) {

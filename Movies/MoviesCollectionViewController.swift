@@ -9,16 +9,15 @@
 import UIKit
 
 private let reuseIdentifier = "cell"
+var currentImage = UIImage()
 
 class MoviesCollectionViewController: UICollectionViewController {
     
     let screenWidth = UIScreen.main.fixedCoordinateSpace.bounds.width
+    var imageCache = [String:UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -27,8 +26,6 @@ class MoviesCollectionViewController: UICollectionViewController {
         layout.itemSize = CGSize(width: screenWidth/6, height: (screenWidth/6)*1.5)
         layout.minimumInteritemSpacing = 0
         collectionView!.collectionViewLayout = layout
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,16 +33,7 @@ class MoviesCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,46 +49,41 @@ class MoviesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let index = indexPath.row
-        let imageView = UIImageView(image: covers[index])
+        let currentMovie = movies[indexPath.row]
+        let image = UIImage(named: "MissingArtworkMovies.png")
+        let imageView = UIImageView(image: image)
         imageView.frame = CGRect(x: 35, y: 5, width: 250, height: (250)*1.5)
         imageView.isUserInteractionEnabled = true
         imageView.adjustsImageWhenAncestorFocused = true
-        cell.addSubview(imageView)
+        
+        if let img = self.imageCache[currentMovie.cover]{
+            imageView.image = img
+            cell.addSubview(imageView)
+        } else{
+            URLSession.shared.dataTask(with: URL(string: currentMovie.cover)!, completionHandler: { (data, response, error) -> Void in
+                
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    let image = UIImage(data: data!)
+                    self.imageCache[currentMovie.cover] = image
+                    if let currentCell = collectionView.cellForItem(at: indexPath){
+                        imageView.image = image
+                        currentCell.addSubview(imageView)
+                    }
+                })
+                
+            }).resume()
+        }
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentMovie = movies[indexPath.row]
+        currentImage = imageCache[movies[indexPath.row].cover]!
         performSegue(withIdentifier: "showMoviesDetail", sender: self)
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-    */
-
 }

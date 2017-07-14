@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		22248BA51E77B24500D7160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22248BA41E77B24500D7160E /* Assets.xcassets */; };
 		224145161E58216D0002A412 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224145151E58216D0002A412 /* PlayerViewController.swift */; };
+		2263BC841F189965007D461F /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263BC831F189965007D461F /* SearchResultsViewController.swift */; };
 		228F98C61E5299BC00DAC854 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98C51E5299BC00DAC854 /* AppDelegate.swift */; };
-		228F98CA1E5299BC00DAC854 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98C91E5299BC00DAC854 /* SecondViewController.swift */; };
+		228F98CA1E5299BC00DAC854 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98C91E5299BC00DAC854 /* SearchViewController.swift */; };
 		228F98CD1E5299BD00DAC854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228F98CB1E5299BD00DAC854 /* Main.storyboard */; };
 		228F98DA1E5299BD00DAC854 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98D91E5299BD00DAC854 /* MoviesTests.swift */; };
 		228F98E51E5299BD00DAC854 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98E41E5299BD00DAC854 /* MoviesUITests.swift */; };
@@ -39,9 +40,10 @@
 /* Begin PBXFileReference section */
 		22248BA41E77B24500D7160E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		224145151E58216D0002A412 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		2263BC831F189965007D461F /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		228F98C21E5299BC00DAC854 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228F98C51E5299BC00DAC854 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		228F98C91E5299BC00DAC854 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		228F98C91E5299BC00DAC854 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		228F98CC1E5299BD00DAC854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		228F98D01E5299BD00DAC854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		228F98D51E5299BD00DAC854 /* MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +107,8 @@
 			children = (
 				228F98C51E5299BC00DAC854 /* AppDelegate.swift */,
 				228F98F61E56602C00DAC854 /* MoviesCollectionViewController.swift */,
-				228F98C91E5299BC00DAC854 /* SecondViewController.swift */,
+				228F98C91E5299BC00DAC854 /* SearchViewController.swift */,
+				2263BC831F189965007D461F /* SearchResultsViewController.swift */,
 				228F98F21E55630F00DAC854 /* MoviesDetail.swift */,
 				224145151E58216D0002A412 /* PlayerViewController.swift */,
 				228F98CB1E5299BD00DAC854 /* Main.storyboard */,
@@ -271,7 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				228F98CA1E5299BC00DAC854 /* SecondViewController.swift in Sources */,
+				228F98CA1E5299BC00DAC854 /* SearchViewController.swift in Sources */,
+				2263BC841F189965007D461F /* SearchResultsViewController.swift in Sources */,
 				228F98F71E56602C00DAC854 /* MoviesCollectionViewController.swift in Sources */,
 				228F98C61E5299BC00DAC854 /* AppDelegate.swift in Sources */,
 				228F98F31E55630F00DAC854 /* MoviesDetail.swift in Sources */,
