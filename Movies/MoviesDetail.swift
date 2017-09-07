@@ -26,7 +26,7 @@ class MoviesDetail: UIViewController, AVPlayerViewControllerDelegate {
         lblTitle.text = currentMovie!.title
         descLbl.text = currentMovie!.desc
         yearLbl.text = currentMovie!.year
-        cover.image = currentImage
+        cover.sd_setImage(with: URL(string: currentMovie!.cover), placeholderImage: #imageLiteral(resourceName: "MissingArtworkMovies.png"), options: [], completed: nil)
     }
     
     @IBAction func playBtn (_ Sender: UIButton) {

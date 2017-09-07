@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -119,7 +119,7 @@
         <!--Search-->
         <scene sceneID="GH8-pg-Etx">
             <objects>
-                <viewController id="5o6-TT-T9i" customClass="SearchViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="5o6-TT-T9i" customClass="SearchViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tog-pq-D1V"/>
                         <viewControllerLayoutGuide type="bottom" id="c2d-cr-h43"/>
@@ -128,16 +128,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVc-WH-F2t">
-                                <rect key="frame" x="0.0" y="155" width="1920" height="917"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="XCA-pM-X1f" kind="embed" id="VxG-2t-N0l"/>
-                                </connections>
-                            </containerView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-BD-MQz">
+                                <rect key="frame" x="0.0" y="184" width="1920" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HtN-vc-M1a">
+                                    <size key="itemSize" width="246" height="392"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="mXb-GP-kMn" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="392"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="246" height="392"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivS-EN-pyX">
+                                                    <rect key="frame" x="13" y="93" width="220" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="thumbnail" destination="ivS-EN-pyX" id="gRd-bd-p6I"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="pYU-Fk-oCL"/>
+                    <connections>
+                        <outlet property="collectionView" destination="6ch-BD-MQz" id="uHp-gy-9Ly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wkh-WK-cIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,15 +182,24 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9Ir-IR-mDl">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="9Ir-IR-mDl" customClass="MoviesCollectionViewCell" customModule="Movies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="297" height="473"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="297" height="473"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcb-A1-D6f">
+                                            <rect key="frame" x="20" y="20" width="257" height="386"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <size key="customSize" width="297" height="473"/>
+                                <connections>
+                                    <outlet property="thumbnail" destination="gcb-A1-D6f" id="itf-2M-bY0"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -182,19 +216,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3c-Ic-QrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4361" y="-640"/>
-        </scene>
-        <!--Search Results View Controller-->
-        <scene sceneID="aq1-6z-PYv">
-            <objects>
-                <viewController id="XCA-pM-X1f" customClass="SearchResultsViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zvc-5D-srO">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="917"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxu-NT-mSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2246" y="2222"/>
         </scene>
     </scenes>
 </document>
