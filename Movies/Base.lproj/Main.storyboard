@@ -26,14 +26,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="80" translatesAutoresizingMaskIntoConstraints="NO" id="5Dc-dm-dnc">
-                                <rect key="frame" x="699" y="88" width="1201" height="135"/>
+                                <rect key="frame" x="699" y="88" width="1154" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="115"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1CJ-Wy-OgQ">
-                                <rect key="frame" x="699" y="521" width="1201" height="428"/>
+                                <rect key="frame" x="699" y="521" width="1154" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Everyone knows that growing up is hard, and life is no easier for high school junior Nadine (Hailee Steinfeld), who is already at peak awkwardness when her all-star older brother Darian (Blake Jenner) starts dating her best friend Krista (Haley Lu Richardson). All at once, Nadine feels more alone than ever, until the unexpected friendship of a thoughtful boy (Hayden Szeto) gives her a glimmer of hope that things just might not be so terrible after all.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="49"/>
@@ -127,40 +127,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-BD-MQz">
-                                <rect key="frame" x="0.0" y="184" width="1920" height="896"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" prefetchingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ch-BD-MQz">
+                                <rect key="frame" x="31" y="245" width="1858" height="835"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HtN-vc-M1a">
-                                    <size key="itemSize" width="246" height="392"/>
+                                    <size key="itemSize" width="344" height="473"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="mXb-GP-kMn" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="246" height="392"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="473"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="246" height="392"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="473"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivS-EN-pyX">
-                                                    <rect key="frame" x="13" y="93" width="220" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivS-EN-pyX">
+                                                    <rect key="frame" x="43" y="43" width="258" height="387"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <size key="customSize" width="344" height="473"/>
                                         <connections>
                                             <outlet property="thumbnail" destination="ivS-EN-pyX" id="gRd-bd-p6I"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="5o6-TT-T9i" id="8HD-Ra-lhj"/>
+                                    <outlet property="delegate" destination="5o6-TT-T9i" id="GXP-LQ-Fsa"/>
+                                </connections>
                             </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLW-3e-Hdu">
+                                <rect key="frame" x="580" y="165" width="760" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5o6-TT-T9i" id="YZZ-RE-86k"/>
+                                </connections>
+                            </textField>
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="pYU-Fk-oCL"/>
                     <connections>
                         <outlet property="collectionView" destination="6ch-BD-MQz" id="uHp-gy-9Ly"/>
+                        <outlet property="txtField" destination="DLW-3e-Hdu" id="rBz-t0-Igt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wkh-WK-cIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,7 +187,7 @@
         <scene sceneID="Ps8-6H-yej">
             <objects>
                 <collectionViewController id="ID0-qZ-V4H" customClass="MoviesCollectionViewController" customModule="Movies" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pCK-78-wbS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="YES" id="pCK-78-wbS">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MXA-aC-Vgi">

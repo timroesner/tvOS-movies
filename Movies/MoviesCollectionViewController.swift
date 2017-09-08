@@ -32,6 +32,7 @@ class MoviesCollectionViewController: UICollectionViewController {
         
         do {
             var counter = 0;
+            movies.removeAll()
             let data = try NSData(contentsOf: url!, options: NSData.ReadingOptions.mappedIfSafe)
             let JSON = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
             if let dictionary = JSON as? [String: Any] {
