@@ -16,15 +16,18 @@ class MoviesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutCollectionView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func layoutCollectionView() {
         collectionView?.frame = CGRect(x: 40, y: 0, width: screenWidth-80, height: screenHeight)
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: ((screenWidth-80)/5), height: (screenWidth/6)*1.5)
         layout.minimumInteritemSpacing = 0
         collectionView!.collectionViewLayout = layout
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     func refreshData() {
@@ -38,7 +41,7 @@ class MoviesCollectionViewController: UICollectionViewController {
             if let dictionary = JSON as? [String: Any] {
                 while(dictionary["\(counter)"] as? [String: Any] != nil){
                     let nestedDic = dictionary["\(counter)"] as? [String: Any]
-                    let tmpMovie = movie(title : (nestedDic!["title"] as? String)!, cover : (nestedDic!["cover"] as? String)!, desc : (nestedDic!["desc"] as? String)!, link : (nestedDic!["link"] as? String)!, year: (nestedDic!["year"] as? String)!, index: counter)
+                    let tmpMovie = Movie(title : (nestedDic!["title"] as? String ?? ""), cover : (nestedDic!["cover"] as? String ?? ""), desc : (nestedDic!["desc"] as? String ?? ""), link : (nestedDic!["link"] as? String ?? ""), year: (nestedDic!["year"] as? String ?? ""), index: counter)
                     movies.append(tmpMovie)
                     counter += 1
                 }
@@ -55,11 +58,9 @@ class MoviesCollectionViewController: UICollectionViewController {
 
     
     // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
-    }
+    } 
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,6 +72,7 @@ class MoviesCollectionViewController: UICollectionViewController {
         let currentMovie = movies[indexPath.row]
         cell.thumbnail.adjustsImageWhenAncestorFocused = true
         cell.thumbnail.sd_setImage(with: URL(string: currentMovie.cover), placeholderImage: #imageLiteral(resourceName: "MissingArtworkMovies.png"), options: [], completed: nil)
+        cell.accessibilityLabel = currentMovie.title
         return cell
     }
     

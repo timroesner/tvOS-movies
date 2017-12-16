@@ -13,7 +13,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var txtField: UITextField!
     
-    var filteredMovies = [movie]()
+    var filteredMovies = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
