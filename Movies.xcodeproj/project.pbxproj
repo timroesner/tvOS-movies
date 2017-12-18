@@ -15,9 +15,9 @@
 		228F98DA1E5299BD00DAC854 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98D91E5299BD00DAC854 /* MoviesTests.swift */; };
 		228F98E51E5299BD00DAC854 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98E41E5299BD00DAC854 /* MoviesUITests.swift */; };
 		228F98F31E55630F00DAC854 /* MoviesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98F21E55630F00DAC854 /* MoviesDetail.swift */; };
-		228F98F51E556FD000DAC854 /* MissingArtworkMovies.png in Resources */ = {isa = PBXBuildFile; fileRef = 228F98F41E556FD000DAC854 /* MissingArtworkMovies.png */; };
 		228F98F71E56602C00DAC854 /* MoviesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F98F61E56602C00DAC854 /* MoviesCollectionViewController.swift */; };
 		22AEF6161FE49E95006AEF02 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AEF6151FE49E95006AEF02 /* Movie.swift */; };
+		22AEF6181FE838ED006AEF02 /* MissingArtworkMovies.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AEF6171FE838ED006AEF02 /* MissingArtworkMovies.png */; };
 		22B059541F5A5FD10029854C /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B059531F5A5FD10029854C /* SearchCollectionViewCell.swift */; };
 		22D0857E1F56419500232752 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D0857D1F56419500232752 /* MoviesCollectionViewCell.swift */; };
 		390F49B35F57E7F8D775F8AC /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8E116ED7DE7DADFABDCF20 /* Pods_Movies.framework */; };
@@ -59,9 +59,9 @@
 		228F98E41E5299BD00DAC854 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		228F98E61E5299BD00DAC854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		228F98F21E55630F00DAC854 /* MoviesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesDetail.swift; sourceTree = "<group>"; };
-		228F98F41E556FD000DAC854 /* MissingArtworkMovies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MissingArtworkMovies.png; path = "../../10.2 Videos Fix - iPhone/10.2 Videos Fix - iPhone/MissingArtworkMovies.png"; sourceTree = "<group>"; };
 		228F98F61E56602C00DAC854 /* MoviesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewController.swift; sourceTree = "<group>"; };
 		22AEF6151FE49E95006AEF02 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		22AEF6171FE838ED006AEF02 /* MissingArtworkMovies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MissingArtworkMovies.png; sourceTree = "<group>"; };
 		22B059531F5A5FD10029854C /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		22D0857D1F56419500232752 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		6727FDAA71B0CB7F7BC52E1F /* Pods-MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesTests/Pods-MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				228F98CB1E5299BD00DAC854 /* Main.storyboard */,
 				22248BA41E77B24500D7160E /* Assets.xcassets */,
 				228F98D01E5299BD00DAC854 /* Info.plist */,
-				228F98F41E556FD000DAC854 /* MissingArtworkMovies.png */,
+				22AEF6171FE838ED006AEF02 /* MissingArtworkMovies.png */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -323,8 +323,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				228F98F51E556FD000DAC854 /* MissingArtworkMovies.png in Resources */,
 				22248BA51E77B24500D7160E /* Assets.xcassets in Resources */,
+				22AEF6181FE838ED006AEF02 /* MissingArtworkMovies.png in Resources */,
 				228F98CD1E5299BD00DAC854 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
